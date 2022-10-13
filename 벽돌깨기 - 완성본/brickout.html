@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="brickout.css">
+	<script src="brickout.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body>
+	<div id="content">
+		<div id="screen-before-start">
+			<img id="img-title-before" src="buttonImg/button1.png" width="800" height="350" onclick="gotoMain();">
+			<div id="title-before" onclick="gotoMain();">농사 지으러<br>가기</div>
+		</div>
+		<div id="screen-start" class="invisible">
+			<img id="img-title" src="buttonImg/button1.png" width="800" height="350">
+			<div id="title">으쌰으쌰!<br>작물재배</div>
+			<div id="start-text" onclick="gotoLevelChoose();">시작</div>
+			<div id="setting-text" onclick="gotoSetting();">환경설정</div>
+			<div id="goto-level" class="goto">
+				<img src="buttonImg/button3.png" width="200" height="150" onclick="gotoLevelChoose();">
+				<!---
+				<button type="button" id="start2" onclick="gotoLevelChoose();"><img src="buttonImg/button3.png" width="100" height="50">시작</button>
+				<button type="button" id="start" onclick="gotoLevelChoose();">시작</button>
+				!--->
+			</div>
+			<div id="goto-setting" class="goto">
+				<img src="buttonImg/button2.png" width="200" height="100" onclick="gotoSetting();">
+				<!---
+				<button id="setting" style="WIDTH: 80pt; HEIGHT: 30pt" onclick="gotoSetting();">환경설정</button>
+				!--->
+			</div>
+		</div>
+		<div id="screen-choose-level" class="invisible">
+			<div id="choose-level-text">난이도를 선택하세요</div>
+			<div id="spring-text" onclick="startTetris(1);" onmouseover="changeImageSpring();" onmouseout="restoreImageSpring();">봄</div>
+			<div id="summer-text" onclick="startTetris(2);" onmouseover="changeImageSummer();" onmouseout="restoreImageSummer();">여름</div>
+			<div id="fall-text" onclick="startTetris(3);" onmouseover="changeImageFall();" onmouseout="restoreImageFall();">가을</div>
+			<div id="winter-text" onclick="startTetris(4);" onmouseover="changeImageWinter();" onmouseout="restoreImageWinter();">겨울</div>
+			<img id="spring" class="level" src="levelButton/level1_spring_opacity50.jpg" width="200" height="600" onclick="startTetris(1);" onmouseover="changeImageSpring();" onmouseout="restoreImageSpring();">
+			<img id="summer" class="level" src="levelButton/level2_summer_opacity50.jpg" width="200" height="600" onclick="startTetris(2);" onmouseover="changeImageSummer();" onmouseout="restoreImageSummer();">
+			<img id="fall" class="level" src="levelButton/level3_fall_opacity50.jpg" width="200" height="600" onclick="startTetris(3);" onmouseover="changeImageFall();" onmouseout="restoreImageFall();">
+			<img id="winter" class="level" src="levelButton/level4_winter_opacity50.jpg" width="200" height="600" onclick="startTetris(4);" onmouseover="changeImageWinter();" onmouseout="restoreImageWinter();">
+		</div>
+		<div id="screen-setting" class="invisible">
+			<p> 공 및 패들 색</p>
+			<br> 
+			<div id="colorTable"></div>
+			<div id="music_div">
+				배경음 :
+				<input type="range" id="music_volume" min="0" max="1" value="0.5" step="0.1" onchange="music_volume();">
+			</div>
+			<div id="effect_div">
+				효과음 : <input type="range" id="effect_volume" min="0" max="1" value="0.5" step="0.1" onchange=	"effect_volume();">
+			</div>
+			<br>
+			<input type="button" id="option_to_main" onclick="gotoMainmenu();" value="메인화면으로">
+
+		</div>
+		<div id="screen-tetris" class="invisible">
+
+		<div class="wrapper-container">
+        <span class="tetris-container">
+            <canvas id="stage" width="325px" height="650px" style="background-color:white;">
+            </canvas>
+            <span class="tetris-panel-container">
+              <p>Next:</p>
+                <canvas id="next" width="175px" height="175px" style="background-color:white;">
+                </canvas>
+              <p>LINES:<span id="lines">0</span></p>
+              <p><span id="message"></span></p>
+              <p>SCORE : LINES x 150</p>
+              <div class="tetris-panel-container-padding"></div>
+              <table class="tetris-button-panel">
+                <tr>
+                  <td></td>
+                  <td id="tetris-rotate-button" class="tetris-button">↻</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td id="tetris-move-left-button"class="tetris-button">←</td>
+                  <td id="tetris-fall-button"class="tetris-button">↓</td>
+                  <td id="tetris-move-right-button"class="tetris-button">→</td>
+                  
+                </tr>
+              </table>
+            </span>
+        </span>
+    	</div>
+    	
+		</div>
+		<div id="brickGame" class="invisible">
+			<img id="startagain" src="startagain.png" class="invisible" onclick="startagainFunc();">
+			<img id="exit" src="exit.png" class="invisible" onclick="exitFunc();">
+			<img id="nextlevelbutton" src="nextlevelbutton.png" class="invisible" onclick="nextlevelbuttonFunc();">
+			<canvas id="myCanvas" width="650" height="650">
+			</canvas>
+		</div>
+		<div id="space">
+			<img src="img/life.png" id="life1" width="40px">
+			<img src="img/life.png" id="life2" width="40px">
+			<img src="img/life.png" id="life3" width="40px">
+			<h3 id="score">score : 0</h3>
+		</div>
+	</div>
+</body>
+</html>

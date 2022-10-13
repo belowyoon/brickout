@@ -1,0 +1,9 @@
+import random
+list=[]
+
+sum = 0
+count = 0
+
+while count <=100:
+    list[count]=random.randint(-100,100)
+    

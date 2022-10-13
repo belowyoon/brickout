@@ -1,0 +1,472 @@
+*{margin:0;padding:0;}
+div{font-family: "DOSSaemmul"}
+input{font-family: "DOSSaemmul"}
+body{
+	width:960px;
+ 	margin:0 auto;
+ 	background-image: url("mainBackground.jpg");
+ 	background-size: 1700px 800px;
+ 	background-repeat: no-repeat;
+ 	background-position: center top;
+}
+
+@font-face {
+    font-family: 'DOSMyungjo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSMyungjo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'DOSSaemmul';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSSaemmul.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+header{
+	width:900px;height:80px;
+	/*background-color:#f6f9d4;
+	position:fixed;*/
+	top:0;
+	padding:40px 30px 0 30px;
+}
+#title{
+	position: absolute;
+	text-align: center;
+	/*ine-height: 80px;*/
+	font-family: "DOSMyungjo";
+	font-size:80px;
+	font-style: italic;
+	position: absolute;
+	top: 100px;
+	left: 250px;
+}
+#title-before{
+	position: absolute;
+	text-align: center;
+	/*ine-height: 80px;*/
+	font-family: "DOSMyungjo";
+	font-size:80px;
+	font-style: italic;
+	position: absolute;
+	top: 100px;
+	left: 200px;
+}
+#content{
+	/*margin-top:120px;*/
+	padding:10px;
+}
+footer{
+	padding:20px;
+	width:920px;
+	background-color:#d2f299;
+}
+footer > p{
+	
+	font-weight:bold;
+	text-align:center;
+}
+/*
+#brickGame{
+	width:550px;
+	height:550px;
+	border:1px solid black;
+	margin:auto;
+}*/
+
+/*#myCanvas{
+	background-color: black;
+	width:550px;
+	height:550px;
+	border:1px solid black;
+}*/
+
+
+/*이 아래로 새로 추가한 css 속성(김희진)*/
+
+.invisible {
+	display: none;
+}
+
+#screen-before-start {
+	width:960px;
+	height:680px;
+	/*border:1px solid black;*/
+	margin:auto;
+	position: relative;
+}
+
+#screen-start {
+	width:960px;
+	height:680px;
+	/*border:1px solid black;*/
+	margin:auto;
+	position: relative;
+}
+
+#screen-choose-level {
+	width:800px;
+	height:650px;
+	margin: auto;
+	position: relative;
+}
+
+#screen-setting {
+	width:650px;
+	height:650px;
+	border:1px solid black;
+	margin:auto;
+	background-color: #d2ae78;
+	position: relative;
+}
+
+#screen-tetris {
+	width:650px;
+	height:650px;
+	border: 5px ridge #F7D351;
+	margin:auto;
+	background-color: #7DEA67;
+}
+
+#brickGame{
+	width:650px;
+	height:650px;
+	margin:auto;
+	border: 5px ridge #F7D351;
+	position: relative;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+    touch-action: manipulation;
+}
+
+.wrapper-container {
+    display: inline-block;
+    /*width: 550px;
+	height: 500px;*/
+}
+
+.tetris-container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 75px;
+    /*margin: 10px;*/
+    background-color: #7DEA67;
+}
+
+.tetris-panel-container {
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-direction: column;
+    color: white;
+    background-color: #7DEA67;
+}
+
+.tetris-panel-container-padding {
+    flex-grow: 1;
+}
+
+.tetris-panel-container p {
+   margin: 0;
+   padding: 0;
+}
+
+.tetris-button-panel {
+    border-style: none;
+    width: 100%;
+}
+
+.tetris-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background: #F7D351;
+}
+
+#stage{ /*테트리스 블럭 내려오는 곳 캔버스*/
+	background-color: white;
+	width:325px;
+	height:650px;
+	border:1px solid black;
+}
+
+#next{ /*테트리스 다음 블럭 알려주는 곳 캔버스*/
+	background-color: white;
+	width:175px;
+	height:175px;
+	border:1px solid black;
+}
+
+
+
+#space{
+	height:50px;
+	
+	margin:0 200px;
+	padding-top:10px;
+	display:none;
+}
+
+.level{
+	/*
+	margin-left:230px;
+	margin-top:50px;*/
+	position: absolute;
+	/*margin:15px auto;*/
+}
+
+#choose-level-text {
+	position: absolute;
+	top: 30px;
+	left: 300px;
+	font-size: 20px;
+	z-index: 1;
+}
+
+#spring {
+	top: 20px;
+	left: 0px;
+}
+
+#summer {
+	top: 20px;
+	left: 200px;
+}
+
+#fall {
+	top: 20px;
+	left: 400px;
+}
+
+#winter {
+	top: 20px;
+	left: 600px;
+}
+
+.level button{
+	border-radius:10px;
+	background-color: #000000;
+	color: white;
+}
+
+div h1 {
+	margin-top:40px;
+	text-align: center;
+}
+
+.goto{
+	width:200px;
+	height:100px;
+	position: absolute;
+	/*margin-top:210px;
+	margin-left:110px;*/
+	/*float:left;*/
+	/*margin-top:120px;
+	margin-left:230px;*/
+	
+}
+
+#goto-level {
+	position: absolute;
+
+	top:350px;
+	left:0px;
+
+}
+
+#goto-setting {
+	position: absolute;
+	top:550px;
+	left:0px;
+}
+
+.goto button{
+	margin: 50px 440px;
+	/*border-radius:10px;
+	background-color: #000000;
+	color: white;*/
+	color: black;
+}
+
+.goto img{
+	margin: 10px 350px;
+	/*border-radius:10px;
+	background-color: #000000;
+	color: white;*/
+	color: black;
+}
+
+
+
+#start-text {
+	position: absolute;
+	
+	top:430px;
+	left:400px;
+	font-size: 35px;
+	
+	
+	/*margin: 50px 440px;
+	background-image: url("buttonImg/button3.png");
+	border: none;*/
+	/*
+	width: 80px;
+	height: 30px;
+	position: absolute;
+	top:530px;
+	left:500px;
+	font-size: 20px;*/
+	z-index: 1;
+}
+
+#setting-text {
+	position: absolute;
+	
+	top:600px;
+	left:380px;
+	font-size: 35px;
+	
+	/*margin: 50px 440px;
+	background-image: url("buttonImg/button3.png");
+	border: none;*/
+	/*width: 80px;
+	height: 30px;
+	position: absolute;
+	top:750px;
+	left:500px;
+	font-size: 20px;*/
+	z-index: 1;
+}
+
+
+#img-title {
+	position: absolute;
+	top:0px;
+	left:50px;
+}
+
+#img-title-before {
+	position: absolute;
+	top:0px;
+	left:50px;
+}
+
+#spring-text {
+	position: absolute;
+	
+	top:550px;
+	left:80px;
+	font-size: 35px;
+	z-index: 1;
+}
+
+#summer-text {
+	position: absolute;
+	
+	top:550px;
+	left:280px;
+	font-size: 35px;
+	z-index: 1;
+}
+
+#fall-text {
+	position: absolute;
+	
+	top:550px;
+	left:480px;
+	font-size: 35px;
+	z-index: 1;
+}
+
+#winter-text {
+	position: absolute;
+	
+	top:550px;
+	left:680px;
+	font-size: 35px;
+	z-index: 1;
+}
+
+div h3{
+   float:right;
+   padding-top:5px;
+   background-color: white;
+}
+
+#myCanvas {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#startagain {
+	width: 130px;
+	height: 70px;
+	position: absolute;
+	top: 250px;
+	left: 130px;
+	z-index: 1;
+}
+
+#exit {
+	width: 130px;
+	height: 70px;
+	position: absolute;
+	top: 250px;
+	left: 390px;
+	z-index: 1;
+}
+
+#nextlevelbutton {
+	width: 130px;
+	height: 70px;
+	position: absolute;
+	top: 250px;
+	left: 260px;
+	z-index: 1;
+}
+
+#option_to_main {
+	font-size: 30px;
+	position: absolute;
+	top: 614px;
+	left: 466px;
+}
+
+#music_div {
+	font-size: 25px;
+	position: absolute;
+	top: 250px;
+	left: 50px;
+
+}
+
+#effect_div {
+	font-size: 25px;
+	position: absolute;
+	top: 400px;
+	left: 50px;
+}
+
+#screen-setting > p {
+	font-size: 25px;
+	text-align: center;
+	padding-top: 25px;
+}
+
+input {
+	cursor: pointer;
+}
+
+#music_volume {
+	width: 400px;
+}
+
+#effect_volume {
+	width: 400px;
+}
